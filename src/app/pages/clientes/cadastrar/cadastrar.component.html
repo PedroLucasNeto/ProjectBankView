@@ -1,0 +1,24 @@
+<form class ="screen" [formGroup]="clienteForm" (ngSubmit)="cadastrarCliente()">
+  <div class = "container">
+    <div class="box-fora">
+      <h2 class="titulo-login">
+        {{idCliente ? 'Editar Dados' : 'Cadastrar'}}
+      </h2>
+      <div class="input-box">
+        <label for="name">Nome de Usuário</label>
+        <input formControlName="nome" type="text" id="name" required="true">
+      </div>
+      <div class="input-box">
+        <label for="cpf">Cpf</label>
+        <input formControlName="cpf" type="text" id="cpf" required="true">
+      </div>
+      <div class="input-box">
+        <label for="email">Email</label>
+        <input formControlName="email" type="text" id="email" required="true">
+      </div>
+    </div>
+    <button type="submit"  [disabled]="!clienteForm.valid" class="botao-login">
+      {{idCliente ? 'Editar' : 'Cadastrar' }} </button>
+    <a class="h2 voltar nav-link underline-text" routerLink="/login" routerLinkActive="active">Voltar</a>
+  </div>
+</form>

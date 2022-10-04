@@ -1,0 +1,57 @@
+
+
+.div2{
+  width: 45%;
+  margin-top: 50px;
+}
+
+.padding{
+  padding: 10px;
+}
+.divmain{
+
+  position: fixed;
+  max-width: 85%;
+  margin-left: 250px;
+  margin-top: -714px;
+
+}
+
+.div3{
+  width: 100%;
+  padding-left: 120px;
+  padding-right: 180px;
+
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.div1{
+  background: linear-gradient(180deg, rgb(214, 218, 224) 0%, rgba(48, 62, 75, 0.637) 100%);
+}
+
+
+.box-down {
+    position: relative;
+    top: 30px;
+}
+.box {
+    width: 20%;
+}
+
+.box {
+  border-radius: 5px;
+  box-shadow: 10px 20px 40px -20px #183f41;
+  padding: 30px;
+  margin: 20px;
+}
+
+.box:hover {
+  box-shadow: 0px 30px 40px -20px #003b36;
+}
+
+img{
+  background-repeat: no-repeat;
+  width: 80px;
+}
