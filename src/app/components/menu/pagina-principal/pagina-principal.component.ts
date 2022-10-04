@@ -1,5 +1,7 @@
+import { AlertasService } from 'src/app/services/alertas.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IConta } from './../../../interfaces/conta';
 import { ContasService } from 'src/app/services/contas.service';
 
@@ -14,26 +16,26 @@ import { Observable } from 'rxjs';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
-  constructor(private contasService: ContasService, private http: HttpClient) { }
-  contas: IConta[] = [];
-  agencia = ''
-  numero = ''
-  conta?: IConta ;
-  ngOnInit(): void {
-    this.buscarTodasContas();
-  }
+  constructor(
+
+    private route: ActivatedRoute,
+    private alertasService: AlertasService,
+    private router: Router,
+    private contasService: ContasService
+    ) { }
+
+    contas: IConta[] = [];
 
 
-  buscarTodasContas() {
-    this.contasService.listarTodasContas().subscribe((contas: IConta[]) => {
-      this.contas = contas;
+    loginForm = new FormGroup({
+
+      agencia: new FormControl('', Validators.required),
+      numero: new FormControl('', Validators.required),
     });
-  }
 
-  buscarUma() {
-    this.contasService.buscarContaPorAgenciaConta(this.agencia,this.numero ).subscribe((conta: IConta) => {
-      this.conta = conta;
-    });
-  }
+
+    ngOnInit(): void {
+
+    }
 
 }

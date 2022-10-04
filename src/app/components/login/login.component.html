@@ -1,5 +1,6 @@
 <form class ="screen" [formGroup]="loginForm" (ngSubmit)="logar()">
-<div>
+<div >
+-
   <div class = "container">
     <div class="box-fora">
       <h2 class="titulo-login">Login</h2>
@@ -12,7 +13,7 @@
         <input type="text" formControlName="numero" id="conta" required="true">
       </div>
     </div>
-    <button type="submit" [disabled]="!loginForm.valid" class="botao-login nav-link" routerLink="/menu/pagina-principal" routerLinkActive="active">Entrar</button>
+    <button type="submit" [disabled]="!loginForm.valid" class="botao-login nav-link">Entrar</button>
     <h2 class="h2">Não tem conta? </h2>
     <a class="h2 cadastro nav-link" routerLink="clientes/cadastrar" routerLinkActive="active">Cadastre-se!</a>
 

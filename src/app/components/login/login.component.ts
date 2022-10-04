@@ -19,47 +19,37 @@ export class LoginComponent implements OnInit {
   private router: Router,
   private contasService: ContasService
   ) { }
+
+  contas: IConta[] = [];
+
   agencia = ''
   numero = ''
-  contas: IConta[] = [];
 
   loginForm = new FormGroup({
 
     agencia: new FormControl('', Validators.required),
     numero: new FormControl('', Validators.required),
+
   });
 
 
   ngOnInit(): void {
-    this.agencia = String(this.route.snapshot.paramMap.get('agencia'));
-    this.numero = String(this.route.snapshot.paramMap.get('numero'));
-    if (this.agencia && this.numero !==null ){
-      this.contasService.buscarContaPorAgenciaConta(this.agencia, this.numero).subscribe((conta:IConta)=>{
-        this.loginForm.setValue({
-          agencia: conta.agencia,
-          numero: conta.numero,
-        });
-      }, (error) => {
-        console.error(error);
-      });
+
+
+  }
+
+  logar(){
+    const conta: IConta = this.loginForm.value as IConta;
+    console.log(conta);
+    if(conta){
+      this.agencia = conta.agencia
+      this.numero = conta.numero
+      this.router.navigateByUrl(`/contas/consultarDados/${this.agencia}/${this.numero}`);
     }
   }
 
-
-
-  logar(agencia?: string, numero?:string) {
-    if (agencia && numero) {
-      this.contasService.buscarContaPorAgenciaConta(agencia,numero).subscribe(() => {
-        this.alertasService.alertaLogado('Logado com sucesso!');
-      }, (error) => {
-        console.error(error);
-      })
-      return;
-    }
-}
-
-buscarTodasContas() {
-  this.contasService.listarTodasContas().subscribe((contas: IConta[]) => {
+  buscarTodasContas() {
+    this.contasService.listarTodasContas().subscribe((contas: IConta[]) => {
     this.contas = contas;
   });
 }

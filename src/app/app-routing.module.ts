@@ -60,6 +60,9 @@ const routes: Routes = [
   },
   {
     path: 'login/clientes/cadastrar', component: CadastrarEditarComponent
+  },
+  {
+    path: 'contas/consultarDados/:agencia/:numero', component: PaginaPrincipalComponent
   }
 ];
 
