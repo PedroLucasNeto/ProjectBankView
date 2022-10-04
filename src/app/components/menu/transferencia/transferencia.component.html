@@ -1,1 +1,33 @@
-<app-menu></app-menu>
+<div class="screen">
+
+  <div class = "container">
+    <h2 class="titulo-login">Preencha os campos da transferência</h2>
+    <div class="box-fora" >
+      <div class="input-box">
+        <label for="valor">Agencia Origem </label>
+        <input type="text" id="valor" required>
+      </div>
+      <div class="input-box">
+        <label for="valor">Conta Origem </label>
+        <input type="text" id="valor" required>
+      </div>
+      <div class="input-box">
+        <label for="valor">Agencia Destino </label>
+        <input type="text" id="valor" required>
+      </div>
+      <div class="input-box">
+        <label for="valor">Conta Destino </label>
+        <input type="text" id="valor" required>
+      </div>
+      <div class="input-box">
+        <label for="valor">Valor </label>
+        <input type="text" id="valor" required>
+      </div>
+    </div>
+    <button class="botao-deposito nav-link" routerLink="/menu/pagina-principal" routerLinkActive="active">Transferir</button>
+    <i class="bi bi-arrow-left botaoback fa-lg" routerLink="/menu/pagina-principal" routerLinkActive="active"></i>
+    <h2 class="h2">Não consegue transferir? Entre em  </h2>
+    <a class="h2 cadastro nav-link" routerLink="/cadastro" routerLinkActive="active">Contato</a>
+  </div>
+
+</div>

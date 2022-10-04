@@ -29,7 +29,7 @@ export class ContasService {
   }
 
   buscarContaPorAgenciaConta(agencia: string, numero: string) {
-    return this.http.get<IConta>(`${this.api}/${this.endpoint}consultarSaldo/${agencia}/${numero}`);
+    return this.http.get<IConta>(`${this.api}/${this.endpoint}consultarDados/${agencia}/${numero}`);
   }
 
   excluirContaPorId(id: number) {

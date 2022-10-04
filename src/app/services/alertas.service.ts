@@ -10,7 +10,14 @@ export class AlertasService {
 
   alertaSucesso(mensagem: string) {
     Swal.fire({
-      title: 'PARABENS',
+      title: 'Sucesso',
+      text: mensagem,
+      icon: 'success'
+    });
+  }
+  alertaLogado(mensagem: string) {
+    Swal.fire({
+      title: 'Logado',
       text: mensagem,
       icon: 'success'
     });
@@ -18,7 +25,7 @@ export class AlertasService {
 
   alertaErro(mensagem: string) {
     Swal.fire({
-      title: 'DEU AGUIA',
+      title: 'Erro!',
       text: mensagem,
       icon: 'error'
     });

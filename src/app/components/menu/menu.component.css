@@ -41,9 +41,11 @@ img{
 
 
 .div{
-  margin-top: 40px;
+  margin-top: 44px;
   display: flex;
+  align-items: center;
   margin-left: 10px;
+
 }
 
 .div.botao{
