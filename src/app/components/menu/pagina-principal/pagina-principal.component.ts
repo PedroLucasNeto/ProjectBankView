@@ -1,12 +1,9 @@
 import { AlertasService } from 'src/app/services/alertas.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IConta } from './../../../interfaces/conta';
 import { ContasService } from 'src/app/services/contas.service';
 
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,23 +16,30 @@ export class PaginaPrincipalComponent implements OnInit {
   constructor(
 
     private route: ActivatedRoute,
-    private alertasService: AlertasService,
-    private router: Router,
     private contasService: ContasService
     ) { }
 
-    contas: IConta[] = [];
-
-
-    loginForm = new FormGroup({
-
-      agencia: new FormControl('', Validators.required),
-      numero: new FormControl('', Validators.required),
-    });
-
+    agencia = ''
+    numero = ''
+    conta?: IConta;
 
     ngOnInit(): void {
 
+      this.agencia = String(this.route.snapshot.paramMap.get('agencia'));
+      this.numero = String(this.route.snapshot.paramMap.get('numero'));
+      console.log(this.agencia);
+      console.log(this.numero);
+
+
+      if (this.agencia && this.numero){
+        this.contasService.buscarContaPorAgenciaConta(this.agencia, this.numero).subscribe((contaParam:IConta)=>{
+          this.conta = contaParam;
+          console.log(contaParam);
+
+        }, (error) => {
+          console.error(error);
+        });
+      }
     }
 
 }

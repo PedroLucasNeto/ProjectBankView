@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -11,7 +12,7 @@ export class ContasService {
   endpoint = 'contas/';
   api = environment.api;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   listarTodasContas() {
     return this.http.get<IConta[]>(`${this.api}/${this.endpoint}`);
@@ -34,6 +35,12 @@ export class ContasService {
 
   excluirContaPorId(id: number) {
     return this.http.delete(`${this.api}/${this.endpoint}/${id}`);
+  }
+
+  logar(agencia:string, numero:string){
+    if(agencia && numero){
+      this.router.navigateByUrl(`/consultarDados/${agencia}/${numero}`);
+    }
   }
 
 }

@@ -1,37 +1,37 @@
-
-<div class="div1">
-
+<div class="container">
   <app-menu></app-menu>
-  <main class="divmain">
-    <div class="div3">
+  <div class="div2">
+    <h2>Bem-vindo {{ conta?.cliente?.nome }}</h2>
+    <div class="container-boxes">
       <div class="box box-down">
         <h4>Saldo</h4>
-        <i class="bi bi-currency-dollar "></i>
+        <p class="p">{{ conta?.saldo || "Não Informado" }}</p>
+        <i class="bi bi-currency-dollar"></i>
       </div>
-        <div class="box box-down">
-          <h4>Poupança</h4>
+      <div class="box box-down">
+        <h4>Poupança</h4>
+        <i class="bi bi-safe2"></i>
+      </div>
+      <div class="box box-down">
+        <h4>Cartões</h4>
 
-          <i class="bi bi-safe2"></i>
-        </div>
-        <div class="box box-down">
-          <h4>Cartões</h4>
+        <i class="bi bi-credit-card-2-back"></i>
+      </div>
+      <div class="box box-down">
+        <h4>Seguros</h4>
 
-          <i class="bi bi-credit-card-2-back" ></i>
-        </div>
-        <div class="box box-down">
-          <h4>Seguros</h4>
+        <i class="bi bi-shield-check"></i>
+      </div>
+      <div class="box box-down">
+        <h4>Invista</h4>
 
-          <i class="bi bi-shield-check" ></i>
-        </div>
-        <div class="box box-down">
-          <h4>Invista</h4>
+        <i class="bi bi-graph-up"></i>
+      </div>
+      <div class="box box-down">
+        <h4>Limites</h4>
 
-          <i class="bi bi-graph-up " ></i>
-        </div>
+        <i class="bi bi-sliders2"></i>
+      </div>
     </div>
-  </main>
+  </div>
 </div>
-
-
-
-
