@@ -42,10 +42,10 @@ import { ExtratosComponent } from './pages/extratos/extratos.component';
     SaqueComponent,
     TransferenciaComponent,
     PaginaPrincipalComponent,
-    PixComponent,
     BoletoComponent,
     ExtratosComponent,
-    CadastrarEditarComponent
+    CadastrarEditarComponent,
+    PixComponent,
 
   ],
   imports: [

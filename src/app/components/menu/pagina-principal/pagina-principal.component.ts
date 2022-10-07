@@ -1,9 +1,9 @@
-import { AlertasService } from 'src/app/services/alertas.service';
+import { LocalStorageService } from './../../../services/local-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IConta } from './../../../interfaces/conta';
 import { ContasService } from 'src/app/services/contas.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -13,10 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
+
   constructor(
 
-    private route: ActivatedRoute,
-    private contasService: ContasService
+    private contasService: ContasService,
+    private localStorage: LocalStorageService
     ) { }
 
     agencia = ''
@@ -24,17 +25,14 @@ export class PaginaPrincipalComponent implements OnInit {
     conta?: IConta;
 
     ngOnInit(): void {
-
-      this.agencia = String(this.route.snapshot.paramMap.get('agencia'));
-      this.numero = String(this.route.snapshot.paramMap.get('numero'));
-      console.log(this.agencia);
-      console.log(this.numero);
-
+      this.agencia = this.localStorage.get('agencia')
+      this.numero = this.localStorage.get('numero')
 
       if (this.agencia && this.numero){
         this.contasService.buscarContaPorAgenciaConta(this.agencia, this.numero).subscribe((contaParam:IConta)=>{
-          this.conta = contaParam;
-          console.log(contaParam);
+        this.conta = contaParam;
+        console.log(this.conta);
+
 
         }, (error) => {
           console.error(error);

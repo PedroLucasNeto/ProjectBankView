@@ -1,17 +1,29 @@
-<div class="screen">
+<form class ="screen" [formGroup]="saqueForm" (ngSubmit)="sacar()">
+
   <div class = "container">
 
+    <h2 class="titulo-login">Valor do deposito</h2>
     <div class="box-fora" >
-      <h2 class="titulo-login">Valor do deposito</h2>
       <div class="input-box">
-        <label for="valor">Valor </label>
-        <input type="text" id="valor" required>
+        <label for="agencia">Agencia </label>
+        <input type="text" formControlName="agencia" id="agencia" required readonly>
+      </div>
+      <div class="input-box">
+        <label for="conta">Conta</label>
+        <input type="text" formControlName="numero" id="conta"  required readonly>
+      </div>
+      <div class="input-box">
+        <label for="valor">Valor</label>
+        <input type="text" formControlName="valor" id="valor"  required >
+      </div>
+      <div class="input-box">
+        <h3>{{conta?.saldo}}</h3>
       </div>
     </div>
-    <button class="botao-deposito nav-link" routerLink="/menu/pagina-principal" routerLinkActive="active">Sacar</button>
-    <i class="bi bi-arrow-left botaoback fa-lg" routerLink="/menu/pagina-principal" routerLinkActive="active"></i>
+    <button  type="submit" [disabled]="!saqueForm.valid" class="botao-deposito nav-link" >Sacar</button>
+    <i class="bi bi22 bi-arrow-left botaoback" routerLink="/menu/pagina-principal"></i>
     <h2 class="h2">Não consegue sacar? Entre em  </h2>
     <a class="h2 cadastro nav-link" routerLink="/cadastro" routerLinkActive="active">Contato</a>
   </div>
 
-</div>
+</form>

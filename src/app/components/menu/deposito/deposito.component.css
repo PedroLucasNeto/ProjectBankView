@@ -17,16 +17,15 @@ label{
   margin-bottom: 5px;
   font-family: "Press Start 2P";
   font-size: 0.8rem;
-
 }
 .container{
 
   border-radius: 7px;
   background-color: #fff;
 
-  width: 350px;
-  height: 400px;
-
+  width: fit-content;
+  padding: 60px;
+  max-height: fit-content;
   position: absolute;
   top: 0;
   bottom: 60px;
@@ -47,6 +46,7 @@ label{
 
 .input-box{
   display:flex;
+  margin: 10px;
   flex-direction: column;
   margin-top: 30px;
 }
@@ -56,7 +56,9 @@ label{
 .box-fora{
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 420px;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
@@ -79,9 +81,11 @@ label{
 
 .titulo-login{
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
 
-  padding: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 0px;
   align-self: center;
   font-size: 1.5rem;
 }
@@ -89,8 +93,7 @@ label{
 .h2{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
-  margin-top: 40px;
-
+  margin-top: 10px;
 }
 
 
@@ -101,10 +104,14 @@ label{
 }
 
 .botaoback {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .botaoback:hover{
   cursor:pointer;
   color:#055160;
+}
+
+.h3{
+  color: #055160;
 }

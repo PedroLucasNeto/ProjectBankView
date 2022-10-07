@@ -24,9 +24,9 @@ label{
   border-radius: 7px;
   background-color: rgb(255, 255, 255);
 
-  width: 350px;
-  height: 400px;
-
+  width: fit-content;
+  padding: 60px;
+  max-height: fit-content;
   position: absolute;
   top: 0;
   bottom: 60px;
@@ -46,17 +46,19 @@ label{
 }
 
 .input-box{
-  display:flex;
+   display:flex;
+  margin: 10px;
   flex-direction: column;
   margin-top: 30px;
-
 
 }
 
 .box-fora{
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 420px;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;

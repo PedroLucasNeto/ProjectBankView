@@ -49,19 +49,18 @@ export class CadastrarEditarComponent implements OnInit {
 
   cadastrarCliente() {
     const cliente: ICliente = this.clienteForm.value as ICliente;
-    console.log(cliente);
     if (this.idCliente) {
       cliente.id = this.idCliente;
       this.clientesService.atualizarCliente(cliente).subscribe(() => {
         this.alertaService.alertaSucesso('Todas as alterações foram salvas.');
-        this.router.navigateByUrl('/clientes');
+        this.router.navigateByUrl('/menu/pagina-principal');
       })
       return;
     }
     cliente.ativo = true;
     this.clientesService.cadastrarCliente(cliente).subscribe(() => {
       this.alertaService.alertaSucesso('Cadastro realizado com sucesso');
-      this.router.navigateByUrl('/clientes');
+      this.router.navigateByUrl('/login/conta/cadastro');
     }, (error) => {
       console.error(error);
     });

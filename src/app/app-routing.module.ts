@@ -35,16 +35,13 @@ const routes: Routes = [
     path: 'menu', component: MenuComponent
   },
   {
-    path: 'menu/deposito', component: DepositoComponent
-  },
-  {
     path: 'menu/saque', component: SaqueComponent
   },
   {
   path: 'menu/transferencia', component: TransferenciaComponent
   },
   {
-  path: 'pages/extratos', component: ExtratosComponent
+  path: 'menu/extratos', component: ExtratosComponent
   },
   {
     path: 'menu/pagina-principal', component: PaginaPrincipalComponent
@@ -63,7 +60,11 @@ const routes: Routes = [
   },
   {
     path: 'contas/consultarDados/:agencia/:numero', component: PaginaPrincipalComponent
-  }
+  },
+  {
+    path: 'menu/deposito', component: DepositoComponent
+  },
+
 ];
 
 @NgModule({

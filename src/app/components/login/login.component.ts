@@ -1,3 +1,5 @@
+import { AlertasService } from 'src/app/services/alertas.service';
+import { LocalStorageService } from './../../services/local-storage.service';
 import { ContasService } from 'src/app/services/contas.service';
 
 import { Router } from '@angular/router';
@@ -14,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
   private contasService: ContasService,
+  private localStorage: LocalStorageService,
+  private alertasService: AlertasService
   ) { }
 
   agencia = ''
@@ -34,7 +38,9 @@ export class LoginComponent implements OnInit {
       this.agencia = conta.agencia
       this.numero = conta.numero
       this.contasService.logar(this.agencia, this.numero);
-    }
+      this.localStorage.set('agencia', this.agencia)
+      this.localStorage.set('numero', this.numero)
+      this.alertasService.alertaLogado('Usuário autenticado.')
   }
-
+}
 }
